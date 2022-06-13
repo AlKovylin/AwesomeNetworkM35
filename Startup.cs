@@ -1,6 +1,9 @@
+using AwesomeNetworkM35.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,6 +26,18 @@ namespace AwesomeNetworkM35
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connection = Configuration.GetConnectionString("DefaultConnection");
+
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
+
+           services.AddIdentity<User, IdentityRole>(opts => {
+               opts.Password.RequiredLength = 5;
+               opts.Password.RequireNonAlphanumeric = false;
+               opts.Password.RequireLowercase = false;
+               opts.Password.RequireUppercase = false;
+               opts.Password.RequireDigit = false;
+           }).AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddRazorPages();
         }
 
