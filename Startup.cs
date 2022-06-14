@@ -67,6 +67,7 @@ namespace AwesomeNetworkM35
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }
