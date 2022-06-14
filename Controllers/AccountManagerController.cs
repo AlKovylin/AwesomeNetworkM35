@@ -39,7 +39,7 @@ namespace AwesomeNetworkM35.Controllers
 
                 var user = _mapper.Map<User>(model);
 
-                var result = await _signInManager.PasswordSignInAsync(user.Email, model.PasswordLogin, model.RememberMe, false);
+                var result = await _signInManager.PasswordSignInAsync(user.Email, model.Password, model.RememberMe, false);
                 if (result.Succeeded)
                 {
                     if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))

@@ -8,12 +8,12 @@ namespace AwesomeNetworkM35.ViewModel
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
-        public string EmailLogin { get; set; }
+        public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Пароль", Prompt = "Введите пароль")]
-        public string PasswordLogin { get; set; }
+        public string Password { get; set; }
 
         [Display(Name = "Запомнить учетные данные?")]
         public bool RememberMe { get; set; }
