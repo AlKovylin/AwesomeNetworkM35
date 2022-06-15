@@ -21,10 +21,25 @@
 .footer {
     padding: 20px;
     text-align: center;
+    background-color: #edeef0;
 }
 
 .topnav {
     padding: 20px;
     text-align: center;
     width: 100%;
+    background-color: white;
+}
+
+.main-img {
+    width: 100%;
+    max-width: max-content;
+}
+
+.background-main {
+    background-color: #edeef0;
+}
+
+.background-white {
+    background-color: white;
 }
