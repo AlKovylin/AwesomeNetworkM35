@@ -8,6 +8,7 @@ namespace AwesomeNetworkM35.Models
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
             Database.EnsureCreated();
+
         }
     }
 }

@@ -48,7 +48,7 @@ namespace AwesomeNetworkM35
                opts.Password.RequireDigit = false;
            }).AddEntityFrameworkStores<ApplicationDbContext>();
 
-            
+            services.AddControllersWithViews();
             services.AddRazorPages();
 
         }
@@ -77,8 +77,10 @@ namespace AwesomeNetworkM35
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
-                endpoints.MapControllers();
             });
         }
     }
