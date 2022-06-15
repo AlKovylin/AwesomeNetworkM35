@@ -1,4 +1,3 @@
-using AutoMapper;
 using AwesomeNetworkM35.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,23 +30,13 @@ namespace AwesomeNetworkM35
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
 
-            var mapperConfig = new MapperConfiguration((v) =>
-            {
-                v.AddProfile(new MappingProfile());
-            });
-
-            IMapper mapper = mapperConfig.CreateMapper();
-
-            services.AddSingleton(mapper);
-
-            services.AddIdentity<User, IdentityRole>(opts =>
-            {
-                opts.Password.RequiredLength = 5;
-                opts.Password.RequireNonAlphanumeric = false;
-                opts.Password.RequireLowercase = false;
-                opts.Password.RequireUppercase = false;
-                opts.Password.RequireDigit = false;
-            }).AddEntityFrameworkStores<ApplicationDbContext>();
+           services.AddIdentity<User, IdentityRole>(opts => {
+               opts.Password.RequiredLength = 5;
+               opts.Password.RequireNonAlphanumeric = false;
+               opts.Password.RequireLowercase = false;
+               opts.Password.RequireUppercase = false;
+               opts.Password.RequireDigit = false;
+           }).AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddRazorPages();
         }
@@ -65,7 +54,6 @@ namespace AwesomeNetworkM35
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

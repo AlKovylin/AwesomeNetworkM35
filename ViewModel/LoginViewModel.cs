@@ -4,10 +4,9 @@ namespace AwesomeNetworkM35.ViewModel
 {
     public class LoginViewModel
     {
-
         [Required]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "Email", Prompt = "Введите Email")]
         public string Email { get; set; }
 
         [Required]
@@ -19,6 +18,5 @@ namespace AwesomeNetworkM35.ViewModel
         public bool RememberMe { get; set; }
 
         public string ReturnUrl { get; set; }
-
     }
 }
