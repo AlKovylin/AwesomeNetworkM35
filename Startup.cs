@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace AwesomeNetworkM35
 {
@@ -28,6 +29,15 @@ namespace AwesomeNetworkM35
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
 
+            // Auto Mapper Configurations
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
 
            services.AddIdentity<User, IdentityRole>(opts => {
@@ -38,7 +48,9 @@ namespace AwesomeNetworkM35
                opts.Password.RequireDigit = false;
            }).AddEntityFrameworkStores<ApplicationDbContext>();
 
+            
             services.AddRazorPages();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
