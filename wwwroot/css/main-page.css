@@ -4,7 +4,6 @@
     padding: 20px;
 }
 
-
 .side {
     -ms-flex: 60%; /* IE10 */
     flex: 60%;
@@ -31,15 +30,7 @@
     background-color: white;
 }
 
-.btn_submit {
-    background-color: #04AA6D;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
+
 
 .frm_text {
     width: 100%;
@@ -91,10 +82,30 @@
     width: 100%;
 }
 
-.main-img {
+    .enter_submit:hover {
+        background-color: #5b92e5;
+    }
+
+.btn_submit {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
     width: 100%;
-    max-width: max-content;
 }
+
+    .btn_submit:hover{
+        background-color:#05d588;
+    }
+
+
+
+    .main-img {
+        width: 100%;
+        max-width: max-content;
+    }
 
 .text-size_12 {
     font-size: 15px;
