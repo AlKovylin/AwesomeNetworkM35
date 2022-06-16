@@ -1,4 +1,4 @@
-﻿using AwesomeNetworkM35.Models.Users;
+﻿ using AwesomeNetworkM35.Models.Users;
 using System.Collections.Generic;
 
 namespace AwesomeNetworkM35.ViewModel.Account

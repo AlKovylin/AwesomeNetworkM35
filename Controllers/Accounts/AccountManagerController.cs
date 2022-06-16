@@ -155,7 +155,7 @@ namespace AwesomeNetworkM35.Controllers.Accounts
         }
         */
         [Route("UserList")]
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> UserList(string search)
         {
             var model = await CreateSearch(search);
