@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace AAwesomeNetworkM35.ViewModel.Account
+namespace AwesomeNetworkM35.ViewModel.Account
 {
     public class UserEditViewModel
     {
@@ -24,7 +24,8 @@ namespace AAwesomeNetworkM35.ViewModel.Account
         [DataType(DataType.Date)]
         [Display(Name = "Дата рождения")]
         public DateTime BirthDate { get; set; }
-
+       
+        //ассоциация поля Email с полем UserName:
         public string UserName => Email;
 
         [DataType(DataType.Text)]

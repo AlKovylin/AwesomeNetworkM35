@@ -1,4 +1,4 @@
-﻿using AAwesomeNetworkM35.ViewModel.Account;
+﻿using AwesomeNetworkM35.ViewModel.Account;
 using AwesomeNetworkM35.Models.Users;
 
 namespace AwesomeNetworkM35.Extenstions

@@ -1,12 +1,14 @@
-﻿using AutoMapper;
+﻿using AwesomeNetworkM35.ViewModel.Account;
+using AutoMapper;
 using AwesomeNetworkM35.Data.UoW;
 using AwesomeNetworkM35.Models.Users;
-using AwesomeNetworkM35.ViewModel;
+using AwesomeNetworkM35.Extenstions;
 using AwesomeNetworkM35.ViewModel.Account;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace AwesomeNetworkM35.Controllers.Accounts
 {
@@ -84,6 +86,45 @@ namespace AwesomeNetworkM35.Controllers.Accounts
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        [Authorize]
+        [Route("Update")]
+        [HttpPost]
+        public async Task<IActionResult> Update(UserEditViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByIdAsync(model.UserId);
+
+                user.Convert(model);
+
+                var result = await _userManager.UpdateAsync(user);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("MyPage", "AccountManager");
+                }
+                else
+                {
+                    return RedirectToAction("Edit", "AccountManager");
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Некорректные данные");
+                return View("Edit", model);
+            }
+        }
+
+        [Route("UserList")]
+        [HttpPost]
+        public IActionResult UserList(string search)
+        {
+            var model = new SearchViewModel
+            {
+                UserList = _userManager.Users.AsEnumerable().Where(x => x.GetFullName().ToLower().Contains(search.ToLower())).ToList()
+            };
+            return View("UserList", model);
         }
     }
 }
