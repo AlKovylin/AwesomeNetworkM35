@@ -1,4 +1,5 @@
 ﻿using AwesomeNetworkM35.Models.Users;
+using System.Collections.Generic;
 
 namespace AwesomeNetworkM35.ViewModel.Account
 {
@@ -10,6 +11,7 @@ namespace AwesomeNetworkM35.ViewModel.Account
         {
             User = user;
         }
+        public List<User> Friends { get; set; }
 
     }
 }
