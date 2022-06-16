@@ -46,9 +46,6 @@ namespace AwesomeNetworkM35
             services.AddUnitOfWork()
                     .AddCustomRepository<Friend, FriendsRepository>();
 
-
-
-
             services.AddIdentity<User, IdentityRole>(opts =>
             {
                 opts.Password.RequiredLength = 5;
