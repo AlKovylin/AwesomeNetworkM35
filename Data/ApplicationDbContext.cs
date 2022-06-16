@@ -1,4 +1,5 @@
-﻿using AwesomeNetworkM35.Models.Users;
+﻿using AwesomeNetworkM35.Configs;
+using AwesomeNetworkM35.Models.Users;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +12,13 @@ namespace AwesomeNetworkM35.Data
 
             Database.EnsureCreated();
 
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.ApplyConfiguration(new FriendConfiguration());
         }
     }
 }
