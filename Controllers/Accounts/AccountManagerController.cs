@@ -216,5 +216,18 @@ namespace AwesomeNetworkM35.Controllers.Accounts
             return RedirectToAction("MyPage", "AccountManager");
 
         }
+
+        [Route("Edit")]
+        [HttpGet]
+        public IActionResult Edit()
+        {
+            var user = User;
+
+            var result = _userManager.GetUserAsync(user);
+
+            var editmodel = _mapper.Map<UserEditViewModel>(result.Result);
+
+            return View("Edit", editmodel);
+        }
     }
 }
