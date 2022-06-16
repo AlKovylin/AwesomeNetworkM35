@@ -1,16 +1,19 @@
-﻿@page
-@using AwesomeNetworkM35.Models
-@using Microsoft.AspNetCore.Identity
-@model AwesomeNetworkM35.ViewModel.RegisterViewModel
+﻿@using AwesomeNetworkM35.Models.Users;
+@using Microsoft.AspNetCore.Identity;
+    
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager;
-@{
-    ViewData["Title"] = "Главная";
 
+@model AwesomeNetworkM35.ViewModel.Account.MainViewModel;
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @if (SignInManager.IsSignedIn(User))
 {
-    <div>Hello @User.Identity!</div>
+    //редирект
+
 }
 else
 {
@@ -24,8 +27,8 @@ else
 
 
         <div class="main">
-      <partial name="Login"/>
-            <partial name="Register"/>
+            <partial name="Login" model="@Model.LoginView" />
+            <partial name="Register" model="@Model.RegisterView"/>
         </div>
 
     </div>

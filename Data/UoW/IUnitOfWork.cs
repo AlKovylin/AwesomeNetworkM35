@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AwesomeNetworkM35.Data.Repository;
+using System;
 
-namespace AwesomeNetworkM35.Data
+
+namespace AwesomeNetworkM35.Data.UoW
 {
     public interface IUnitOfWork : IDisposable
     {

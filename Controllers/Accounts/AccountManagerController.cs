@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
-using AwesomeNetworkM35.Data;
-using AwesomeNetworkM35.Models;
+using AwesomeNetworkM35.Data.UoW;
+using AwesomeNetworkM35.Models.Users;
 using AwesomeNetworkM35.ViewModel;
+using AwesomeNetworkM35.ViewModel.Account;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace AwesomeNetworkM35.Controllers
+namespace AwesomeNetworkM35.Controllers.Accounts
 {
     public class AccountManagerController : Controller
     {

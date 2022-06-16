@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using AwesomeNetworkM35.Models;
-using AwesomeNetworkM35.ViewModel;
+using AwesomeNetworkM35.Models.Users;
+using AwesomeNetworkM35.ViewModel.Account;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace AwesomeNetworkM35.Controllers
+namespace AwesomeNetworkM35.Controllers.Accounts
 {
     public class RegisterController : Controller
     {
@@ -46,7 +46,7 @@ namespace AwesomeNetworkM35.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("MyPage", "AccountManager");
                 }
                 else
                 {

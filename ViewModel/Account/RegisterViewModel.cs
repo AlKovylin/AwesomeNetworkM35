@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AwesomeNetworkM35.ViewModel
+namespace AwesomeNetworkM35.ViewModel.Account
 {
     public class RegisterViewModel
     {

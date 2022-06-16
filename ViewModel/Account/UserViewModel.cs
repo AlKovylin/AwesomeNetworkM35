@@ -1,6 +1,6 @@
-﻿using AwesomeNetworkM35.Models;
+﻿using AwesomeNetworkM35.Models.Users;
 
-namespace AwesomeNetworkM35.ViewModel
+namespace AwesomeNetworkM35.ViewModel.Account
 {
     public class UserViewModel
     {

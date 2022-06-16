@@ -1,11 +1,4 @@
-﻿namespace AwesomeNetworkM35.ViewModel
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-
-    namespace AwesomeNetwork.ViewModels.Account
+﻿    namespace AwesomeNetworkM35.ViewModel.Account
     {
         public class MainViewModel
         {
@@ -20,4 +13,4 @@
             }
         }
     }
-}
+

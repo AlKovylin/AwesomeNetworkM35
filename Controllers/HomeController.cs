@@ -1,11 +1,11 @@
-﻿using AwesomeNetworkM35.ViewModel.AwesomeNetwork.ViewModels.Account;
+﻿using AwesomeNetworkM35.ViewModel.Account;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AwesomeNetworkM35.Controllers
 {
     public class HomeController : Controller
     {
-        
+        [Route("")]
         [Route("[controller]/[action]")]
         public IActionResult Index()
         {

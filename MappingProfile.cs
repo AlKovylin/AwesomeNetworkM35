@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
-using AwesomeNetworkM35.Models;
-using AwesomeNetworkM35.ViewModel;
+using AwesomeNetworkM35.Models.Users;
+using AwesomeNetworkM35.ViewModel.Account;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace AwesomeNetworkM35
 {
