@@ -86,17 +86,21 @@ namespace AwesomeNetworkM35.Controllers.Accounts
             if (ModelState.IsValid)
             {
 
-                var user = _mapper.Map<User>(model);
-
-                var result = await _signInManager.PasswordSignInAsync(user.Email, model.Password, model.RememberMe, false);
-
-                if (result.Succeeded)
+                var userMap = _mapper.Map<User>(model);
+               
+                var user = await _userManager.FindByEmailAsync(userMap.Email);
+                if (user != null)
                 {
-                    return RedirectToAction("MyPage", "AccountManager");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Неправильный логин и (или) пароль");
+                    var result = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, false, false);
+
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("MyPage", "AccountManager");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Неправильный логин и (или) пароль");
+                    }
                 }
             }
             return RedirectToAction("Index", "Home");
