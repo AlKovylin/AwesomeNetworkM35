@@ -9,9 +9,7 @@ namespace AwesomeNetworkM35.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-
             Database.EnsureCreated();
-
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

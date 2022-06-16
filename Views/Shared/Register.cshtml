@@ -26,7 +26,7 @@
 
       <div class="center text-color-gray text-size_12">Дата рождения</div>
         <div class="mrgn center">
-            <select asp-for="Date" class="form-control date_control" ID="ddlDay" asp-items="Enumerable.Range(1, 31).Select(x=>new SelectListItem(x.ToString(), x.ToString()))" onchange="PopulateDays()">
+            <select asp-for="Date" class="form-control date_control" ID="ddlDay">
                     
             </select>
             <span asp-validation-for="Date" class="text-danger"></span>

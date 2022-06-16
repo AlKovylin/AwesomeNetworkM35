@@ -62,7 +62,7 @@ namespace AwesomeNetworkM35.Controllers.Accounts
 
         private async Task<List<User>> GetAllFriend(User user)
         {
-            var repository =  _unitOfWork.GetRepository<Friend>() as FriendsRepository;
+            var repository = _unitOfWork.GetRepository<Friend>() as FriendsRepository;
 
             return repository.GetFriendsByUser(user);
         }
