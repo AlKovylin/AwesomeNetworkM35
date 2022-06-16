@@ -16,14 +16,14 @@ namespace AwesomeNetworkM35.Controllers.Accounts
 
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-        private IUnitOfWork _unitOfWork;
 
-        public AccountManagerController(UserManager<User> userManager, SignInManager<User> signInManager, IMapper mapper, IUnitOfWork unitOfWork)
+
+        public AccountManagerController(UserManager<User> userManager, SignInManager<User> signInManager, IMapper mapper)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _mapper = mapper;
-            _unitOfWork = unitOfWork;
+
     }
 
         [Route("Login")]
