@@ -1,14 +1,19 @@
+using System.Linq;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
+
+
 using AwesomeNetworkM35.Models.Users;
 using AwesomeNetworkM35.Data;
+using AwesomeNetworkM35.Data.Repository;
+using AwesomeNetworkM35.Extenstions;
 
 namespace AwesomeNetworkM35
 {
@@ -37,13 +42,21 @@ namespace AwesomeNetworkM35
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
 
-           services.AddIdentity<User, IdentityRole>(opts => {
-               opts.Password.RequiredLength = 5;
-               opts.Password.RequireNonAlphanumeric = false;
-               opts.Password.RequireLowercase = false;
-               opts.Password.RequireUppercase = false;
-               opts.Password.RequireDigit = false;
-           }).AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddUnitOfWork()
+                    .AddCustomRepository<Friend, FriendsRepository>();
+
+
+
+
+            services.AddIdentity<User, IdentityRole>(opts =>
+            {
+                opts.Password.RequiredLength = 5;
+                opts.Password.RequireNonAlphanumeric = false;
+                opts.Password.RequireLowercase = false;
+                opts.Password.RequireUppercase = false;
+                opts.Password.RequireDigit = false;
+            }).AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
