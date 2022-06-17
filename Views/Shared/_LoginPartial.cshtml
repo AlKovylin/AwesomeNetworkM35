@@ -4,7 +4,7 @@
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
-<div class="righ-align">
+<div class="righ-align" style="float: right ">
     @if (SignInManager.IsSignedIn(User))
     {
         <form method="post" asp-controller="AccountManager" asp-action="Logout">
