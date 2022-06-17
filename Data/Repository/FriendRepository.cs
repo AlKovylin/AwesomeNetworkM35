@@ -35,11 +35,11 @@ namespace AwesomeNetworkM35.Data.Repository
             var friends = Set.Include(x => x.CurrentFriend).AsEnumerable().Where(x => x.User.Id == target.Id).Select(x => x.CurrentFriend);
 
             //костыль, чтобы записался друг сам себе
-            /*if (friends == null)
+            if (friends == null)
             {
                 AddFriend(target, target);
                 GetFriendsByUser(target);
-            }*/
+            }
 
             return friends.ToList();
         }

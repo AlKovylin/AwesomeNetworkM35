@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.Collections.Generic;
 using AwesomeNetworkM35.Data.Repository;
+using AwesomeNetworkM35.Data;
 
 namespace AwesomeNetworkM35.Controllers.Accounts
 {
@@ -303,6 +304,25 @@ namespace AwesomeNetworkM35.Controllers.Accounts
                 History = mess.OrderBy(x => x.Id).ToList(),
             };
             return View("Chat", model);
+        }
+
+        [Route("Generate")]
+        [HttpGet]
+        public async Task<IActionResult> Generate()
+        {
+
+            var usergen = new GenetateUsers();
+            var userlist = usergen.Populate(35);
+
+            foreach (var user in userlist)
+            {
+                var result = await _userManager.CreateAsync(user, "123456");
+
+                if (!result.Succeeded)
+                    continue;
+            }
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
