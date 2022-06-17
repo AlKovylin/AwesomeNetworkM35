@@ -9,9 +9,7 @@ namespace AwesomeNetworkM35.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-
             Database.EnsureCreated();
-
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -19,6 +17,7 @@ namespace AwesomeNetworkM35.Data
             base.OnModelCreating(builder);
 
             builder.ApplyConfiguration(new FriendConfiguration());
+            builder.ApplyConfiguration(new MessageConfuiguration());
         }
     }
 }

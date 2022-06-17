@@ -38,13 +38,14 @@ namespace AwesomeNetworkM35
             });
 
             IMapper mapper = mappingConfig.CreateMapper();
+
             services.AddSingleton(mapper);
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
 
-
             services.AddUnitOfWork()
-                    .AddCustomRepository<Friend, FriendsRepository>();
+                    .AddCustomRepository<Friend, FriendsRepository>()
+                    .AddCustomRepository<Message, MessageRepository>();
 
             services.AddIdentity<User, IdentityRole>(opts =>
             {
